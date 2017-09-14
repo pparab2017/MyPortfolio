@@ -5,7 +5,7 @@ return [
             'connections' => [
                 'default' => [
                     'adapter' => 'mysql',
-                    'dsn' => 'mysql:host=localhost;port=3306;dbname=inclass01',
+                    'dsn' => 'mysql:host=localhost;port=3306;dbname=portfolio',
                     'user' => 'root',
                     'password' => 'mysql2017',
                     'settings' => [
