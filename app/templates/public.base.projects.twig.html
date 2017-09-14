@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap -->
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://bootflat.github.io/bootflat/css/bootflat.css">-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css"/>
+
+    <script type="text/javascript" src="http://d3js.org/d3.v4.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css">
+
+
+    <link rel="stylesheet" href="https://cdn.rawgit.com/select2/select2/master/dist/css/select2.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <![endif]-->
+</head>
+<body>
+
+<style type="text/css">
+
+    .topSpacing{
+
+        margin-top: 100px; background-color: #282E34; color: white;
+    }
+
+    .videoWrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+    }
+    .videoWrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-top: 20px;
+        height: 100%;
+    }
+.smallPCon
+{
+    padding-top: 10px;
+}
+    .smallContainerProjects
+    {
+        float: left;
+        padding: 5px;
+        margin-right: 5px;
+        margin-top: 5px;
+        font-weight: bold;
+        border-radius: 4px;
+        color: white;
+        font-size: 10px;
+    }
+
+    .anchor{
+        display: block;
+        height: 70px; /*same height as header*/
+        margin-top: -70px; /*same height as header*/
+        visibility: hidden;
+    }
+
+    ol{
+        margin-left: -25px !important;
+    }
+    .eachProj
+    {
+
+        padding: 40px;
+        border-bottom: 1px dashed #dddddd;
+        margin-top: 10px;
+    }
+
+    .projectTitle
+    {
+        font-size: large;
+        padding-top: 20px;
+
+
+    }
+    body
+    {
+        background: #1e5799;
+        background: rgba(237,237,237,1);
+        background: -moz-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(246,246,246,1) 0%, rgba(249,249,249,1) 13%, rgba(255,255,255,1) 39%, rgba(255,255,255,1) 50%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(237,237,237,1)), color-stop(0%, rgba(246,246,246,1)), color-stop(13%, rgba(249,249,249,1)), color-stop(39%, rgba(255,255,255,1)), color-stop(50%, rgba(255,255,255,1)));
+        background: -webkit-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(246,246,246,1) 0%, rgba(249,249,249,1) 13%, rgba(255,255,255,1) 39%, rgba(255,255,255,1) 50%);
+        background: -o-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(246,246,246,1) 0%, rgba(249,249,249,1) 13%, rgba(255,255,255,1) 39%, rgba(255,255,255,1) 50%);
+        background: -ms-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(246,246,246,1) 0%, rgba(249,249,249,1) 13%, rgba(255,255,255,1) 39%, rgba(255,255,255,1) 50%);
+        background: linear-gradient(to bottom, rgba(237,237,237,1) 0%, rgba(246,246,246,1) 0%, rgba(249,249,249,1) 13%, rgba(255,255,255,1) 39%, rgba(255,255,255,1) 50%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ffffff', GradientType=0 );filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ffffff', GradientType=0 ); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ffffff', GradientType=0 );
+        background-attachment: fixed;}
+
+    .index
+    {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        padding-right: 20px;
+        position: fixed;
+        width: 190px;
+        min-height: 600px;
+        border-right: 1px dashed #dddddd;
+        margin-top: 10px;
+    }
+
+    .projectDes
+    {
+
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+
+    }
+
+
+    .cirhref
+    {
+        top:20px; right: 20px; position: absolute;
+        cursor: pointer;
+    }
+
+    .cirdiv {
+        margin-left: 20px !important;
+    ;background-color: white; padding-top: 5px; height: 30px; width: 30px; border-radius: 50%;
+    }
+
+
+    .tilebasic
+    {
+        height: 180px; position: relative; margin-left: 5px; margin-right: 5px;
+    }
+
+
+    .hover-animate{
+        cursor: pointer;
+    }
+
+    .glyphicon
+    {
+        margin-left: 20px !important; top:20px !important; position: absolute;
+        -moz-transition: -moz-transform ease 0.6s;
+        -webkit-transition: -webkit-transform ease 0.6s;
+        -o-transition: -o-transform ease 0.6s;
+        -ms-transition: -ms-transform ease 0.6s;
+        transition: transform ease 0.6s;
+    }
+
+
+    .adminTile
+    {
+        background-color: #4CAF50;
+        -webkit-border-radius: 4px 4px 0px 0px;
+        border-radius:4px 4px 0px 0px;
+        -moz-border-radius: 4px 4px 0px 0px;
+        padding: 10px;
+    }
+    .backDp{
+        transition: background 0.6s ease-in;
+        border-radius: 3px;
+        margin-top: 20px;
+    }
+
+
+
+    .hover-animate:hover  .backDp{
+        background-color: #7F7F7F;
+        -webkit-transition: background-color 0.6s ease-out;
+        -moz-transition: background-color 0.6s ease-out;
+        -o-transition: background-color 0.6s ease-out;
+        transition: background-color 0.6s ease-out;
+
+
+
+
+    }
+
+    .hover-animate:hover .glyphicon
+    {
+
+        transform: translate(7px,0) scale(1.07)  translate(0,-5px);
+        -webkit-transform: translate(7px,0) scale(1.07)  translate(0,-5px); /** Chrome & Safari **/
+        -o-transform: translate(7px,0) scale(1.07)  translate(0,-5px); /** Opera **/
+        -moz-transform: translate(7px,0) scale(1.07)  translate(0,-5px);/** Firefox **/
+
+
+    }
+
+    .tileText
+    {
+        color:white;
+        font-size: 30px;
+        vertical-align: text-top;
+        position: absolute;
+        top:60px;
+        left: 150px;
+    }
+
+    .tileTextSmall{
+        color:white;  vertical-align: text-top; position: absolute; top:100px; left: 150px;
+
+    }
+
+
+
+    .bgimg {
+        /*background-color: #81C784;*/
+        background-size:100%;
+    }
+
+
+    .timeDiv{
+        position: absolute;
+        padding: 4px 6px;
+        color: #aaa;
+        background-color: #fff;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 1;
+        border-radius: 3px;
+        border: 1px solid #fff;
+        pointer-events: none;
+    }
+
+    .tooltip {
+        position: absolute;
+        padding: 4px 6px;
+        color: #fff;
+        background-color: #000;
+        font-size: 10px;
+        font-weight: bold;
+        line-height: 1;
+        border-radius: 3px;
+        border: 1px solid #000;
+        pointer-events: none;
+    }
+
+    .tooltip:after {
+        content:"";
+        position:absolute;
+        height:0;
+        width:0;
+        left:100%;
+        top:4px;
+        border:5px dotted transparent;
+        border-left: 7px dotted black;
+    }
+
+
+    .svgtxt{
+        -webkit-touch-callout: none;
+        -webkit-user-select:none;
+        -khtml-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        -o-user-select:none;
+        user-select:none;
+        cursor: pointer;
+    }
+
+    .pointer
+    {
+        cursor: pointer;
+    }
+
+    a {
+
+        text-decoration: none !important;
+
+    }
+
+
+
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        position: relative;
+        opacity: 0.9;
+        background-color: #282E34;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+    .bgimg-1 {
+        background-image: url("/imgs/te2.jpg");
+
+        min-height: 800px;
+    }
+
+    .bgimg-2 {
+        background-image: url("/imgs/te2.jpg");
+        height: 400px;
+    }
+
+    .bgimg-3 {
+        background-image: url("/imgs/te2.jpg");
+
+    }
+
+    .caption {
+        position: absolute;
+        /*left: 0;*/
+        /*top: 50%;*/
+        width: 100%;
+        /*text-align: center;*/
+        color: #000;
+    }
+
+    .caption span.border {
+        background-color: #111;
+        color: #fff;
+        padding: 18px;
+        font-size: 25px;
+        letter-spacing: 10px;
+    }
+
+    .intro{
+        /*background-color: #111;*/
+        color: #fff;
+        margin-left: 10px;
+        font-size: 25px;
+        font-weight: 200;
+
+    }
+
+
+    .h3 {
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        font: 30px "Lato", sans-serif;
+        color: #000;
+    }
+
+
+    .navbar-toggle {
+        border: none;
+        background: transparent !important;
+    }
+
+    .navbar-toggle:hover {
+        background: transparent !important;
+    }
+
+    .navbar-toggle .icon-bar {
+        width: 22px;
+        -webkit-transition: all 0.2s;
+        transition: all 0.2s;
+    }
+
+    .navbar-toggle.x .icon-bar:nth-of-type(1) {
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -webkit-transform-origin: 10% 10%;
+        -ms-transform-origin: 10% 10%;
+        transform-origin: 10% 10%;
+    }
+
+    .headerBar {
+        height: 100px;
+        background-color: white;
+    }
+
+    .navbar-toggle.x .icon-bar:nth-of-type(2) {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+    .navbar-toggle.x .icon-bar:nth-of-type(3) {
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        -webkit-transform-origin: 10% 90%;
+        -ms-transform-origin: 10% 90%;
+        transform-origin: 10% 90%;
+    }
+
+    /* ANIMATED X COLLAPSED */
+    .navbar-toggle.x.collapsed .icon-bar:nth-of-type(1) {
+        -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    .navbar-toggle.x.collapsed .icon-bar:nth-of-type(2) {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+
+    .navbar-toggle.x.collapsed .icon-bar:nth-of-type(3) {
+        -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+        max-height: none;
+    }
+
+    .icon-bar {
+        background-color: #999999 !important;
+    }
+
+    .mobileList{
+        display: none;
+    }
+
+    /* Turn off parallax scrolling for tablets and phones */
+    @media only screen and (max-device-width: 1024px) {
+        .bgimg-1, .bgimg-2, .bgimg-3 {
+            background-attachment: scroll;
+        }
+    }
+
+
+
+
+
+    @media screen and (max-width: 780px) and (min-width: 320px) {
+
+        .topSpacing{
+
+            margin-top: 0px; background-color: #282E34; color: white;
+        }
+
+
+        .eachProj
+        {
+
+            padding: 0px;
+            border-bottom: 1px dashed #dddddd;
+            margin-top: 10px;
+        }
+
+
+.index{
+    display: none;
+}
+
+        .ill:after{
+            clear: both;
+            display: block;
+            content: "";
+            height:20px;
+        }
+
+        .mobileList{
+            display: block;
+            text-align: center;
+            padding: 20px;
+        }
+
+
+        .headerBar{
+            background-color: transparent !important;
+        }
+
+        .menuItem{
+            padding-top: 30px;
+        }
+
+        .bgimg-1, .bgimg-2, .bgimg-3 {
+            background-attachment: scroll;
+            height: auto !important;
+        }
+
+        .backfull
+        {
+            background-color:rgba(255, 255, 255, 0.95);
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            padding-bottom: 50px;
+            z-index: 1;
+
+
+        }
+
+        .bgimg-2 .skillset{
+            background-color:#FFC107; height: auto;
+        }
+
+        .intodiv
+        {
+            margin-top: 0%;
+        }
+
+
+        .click
+        {
+            position: fixed;
+            right: 10px;
+            top: 10px;
+            z-index: 5;
+        }
+        .skillset{
+            height: auto;
+        }
+
+
+        .anchor{
+            display: block;
+            height: 0px; /*same height as header*/
+            margin-top: 0px; /*same height as header*/
+            visibility: hidden;
+        }
+
+        .caption {
+            position: relative;
+            /*left: 0;*/
+            /*top: 50%;*/
+            width: 100%;
+            /*text-align: center;*/
+            color: #000;
+        }
+
+
+    }
+
+
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+
+<script>
+
+
+    $(document).ready(function() {
+
+
+
+    });
+
+</script>
+
+
+
+<nav class="navbar navbar-fixed-top headerBar"  >
+    <div class="container">
+        <div class="navbar-header click">
+            <button type="button" class="navbar-toggle x collapsed" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="collapse navbar-collapse backfull" id="myNavbar">
+
+            <div class="nav navbar-nav container" style="padding-top: 30px;letter-spacing: 7px;">
+                <div class="col-sm-2 menuItem">   <a href="/">◀ HOME</a> </div>
+                <div class="col-sm-10 text-center menuItem"> <a href="#"> <h4>MY PROJECTS</h4></a> </div>
+
+                <div style="padding-top: 30px;letter-spacing: 0px;" class="mobileList"  id="projs"></div>
+            </div>
+
+
+        </div>
+    </div>
+</nav>
+
+
+
+{%block header %}{% endblock %}
+
+
+
+
+{% block content %}{% endblock %}
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://bootflat.github.io/bootflat/js/icheck.min.js"></script>
+<script src="https://bootflat.github.io/bootflat/js/jquery.fs.selecter.min.js"></script>
+<script src="https://bootflat.github.io/bootflat/js/jquery.fs.stepper.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.15/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/select/1.2.2/js/dataTables.select.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js" type="text/javascript"></script>
+<script src="http://momentjs.com/downloads/moment.min.js" type="text/javascript"></script>
+<script src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/master/src/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+
+<script src="https://rawgit.com/select2/select2/master/dist/js/select2.full.js"></script>
+<!--<script src="https://rawgit.com/jeromeetienne/jquery-qrcode/master/src/jquery.qrcode.js"></script>-->
+<!--<script src="https://rawgit.com/jeromeetienne/jquery-qrcode/master/src/qrcode.js"></script>-->
+
+<script src="https://rawgit.com/kazuhikoarase/qrcode-generator/master/js/qrcode.js"></script>
+<script src="https://rawgit.com/lrsjng/jquery-qrcode/master/src/jquery-qrcode.js"></script>
+<script type="text/javascript" src="/assets/js/score.js"></script>
+<script src="https://rawgit.com/codebox/moment-precise-range/master/moment-precise-range.js"></script>
+<script type="text/javascript" src="/assets/js/timeline.js"></script>
+
+{% block myscripts %}{% endblock %}
+</body>
+</html>

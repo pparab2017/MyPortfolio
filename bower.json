@@ -1,0 +1,21 @@
+{
+  "name": "storycallapp",
+  "authors": [
+    "Pushparaj Parab <pparab1@uncc.edu>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "flat-ui": "^2.3.0"
+  }
+}

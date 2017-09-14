@@ -1,0 +1,219 @@
+{% extends "public.base.projects.twig.html" %}
+
+{% block title %} Pushparaj P. Parab | My Projects {% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div  class="topSpacing" >
+<div class="container">
+    <!--<iframe id="ytplayer" type="text/html" width="640" height="360"-->
+            <!--src="https://www.youtube.com/embed/t6gBIj6o2qg?autoplay=1&origin=http://example.com"-->
+            <!--frameborder="0"></iframe>-->
+</div>
+
+
+</div>
+
+<div class="container" >
+
+    <div  class="col-md-2 col-sm-3 col-xs-12 ">
+        <div class="index" id="projectIndex">
+            <h4>INDEX</h4>
+        </div>
+
+
+    </div>
+    <div id="projectContainer" class="col-md-10 col-sm-9 col-xs-12 ">
+        <h2 class="h3 text-center" id="langType"></h2>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+{% block myscripts %}
+
+<script  type="text/javascript">
+
+
+
+function DisplayProjects(data)
+{
+    var ul = Ul.make();
+    var ul2 = Ol.make();
+    for(var i=0;i< data.length;i++) {
+        var MainDiv = Div.make("eachProj");
+
+        var titleDiv = Div.make("projectTitle");
+        var titleDes = Div.make("projectTitle");
+        var notes = Div.make("");
+        var gitImg = Img.make("","/imgs/git.png","30px");
+        var overView = Div.make("projectDes");
+       // overView.setAttribute("id","projName_"+data[i].Name );
+
+        $("#projectContainer").append( "<span class='anchor' id=" + "projName_"+  data[i].Id +" ></span>");
+
+        var li = Li.make(data[i].Name,"#projName_"+data[i].Id);
+        ul.append(li);
+        var li2 = Lic.make(data[i].Name,"#projName_"+data[i].Id);
+        li2.setAttribute("class","ill");
+        ul2.append(li2);
+
+        $("#projectIndex").append(ul);
+
+        $("#projs").append(ul2);
+
+        if(data[i].Gitlink != null  )
+            titleDiv.innerHTML = "<b>" + data[i].Name +"</b><a target='_blank' href='" + data[i].Gitlink +"'>  <img src='/imgs/git.png' style='margin-top: -5px' height='20px;' ></a>";
+        else
+            titleDiv.innerHTML = "<b>" + data[i].Name +"</b>";
+
+        titleDes.innerHTML = "<b>Overview:</b>";
+        MainDiv.append(titleDiv);
+        MainDiv.append(titleDes);
+        overView.innerHTML= data[i].Des;
+        MainDiv.append(overView);
+        notes.innerHTML = data[i].Notes;
+        MainDiv.append(notes);
+
+
+        if(data[i].Videolink != null){
+
+            var vdoDiv = Div.make("text-center videoWrapper");
+            vdoDiv.innerHTML = ("<iframe id='ytplayer' type='text/html'  src='https://www.youtube.com/embed/" +data[i].Videolink +"?autoplay=0&origin=http://example.com'  frameborder='0'></iframe>");
+            MainDiv.append(vdoDiv);
+        }
+
+        var img = ImgH.make("img-responsive", data[i].ImgUrl, "1140px");
+        if(!(data[i].ImgUrl == null || data[i].ImgUrl == ""))
+            MainDiv.append(img);
+        $("#projectContainer").append(MainDiv);
+
+    }
+
+}
+
+function setLanguages(languages) {
+    var MainDiv = Div.make("smallPCon");
+    var MainDiv2 = Div.make("smallPCon2");
+    MainDiv.innerHTML = ("<h4>OTHER PROJECTS</h4>");
+    MainDiv2.innerHTML = ("<h4>OTHER PROJECTS</h4>");
+    for(var i =0;i<languages.length;i++) {
+        var inner = Div.make("smallContainerProjects");
+        var href = Href.make("","/projects/"+languages[i].Id );
+        inner.append(languages[i].Name);
+        inner.setAttribute("style", "background-color:"+ languages[i].Color);
+        href.append(inner);
+
+
+        var inner2 = Div.make("smallContainerProjects");
+        var href2 = Href.make("","/projects/"+languages[i].Id );
+        inner2.append(languages[i].Name);
+        inner2.setAttribute("style", "background-color:"+ languages[i].Color);
+        href2.append(inner2);
+
+
+        if(id!= languages[i].Id){
+        MainDiv.append(href);
+        MainDiv2.append(href2);}
+
+
+    }
+    $("#projectIndex").append(MainDiv);
+    $("#projs").append(MainDiv2);
+
+
+}
+
+function getLanguages() {
+
+    $.ajax({
+        type: 'GET',
+        url: '/admin/Language/ajax',
+        dataType: "json",
+        success: function(data){
+            console.log(data);
+            setLanguages(data.Languages);
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert('Error while getting Languages: ' + textStatus);
+        }
+    });
+
+
+}
+
+
+    function PopulateProjects(id) {
+
+        $.ajax({
+            type: 'POST',
+            url: '/admin/LanguageByID/ajax',
+            data: {id : id },
+            success: function(obj){
+                var out = JSON.parse(obj);
+                DisplayProjects(out.Projects);
+                getLanguages();
+                console.log(out);
+
+                $(".ill").click(function () {
+
+                    var width = $( document ).width();
+                    if(width < 800) {
+                        $('.navbar-toggle').click();
+                    }
+                });
+
+
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+                console.log('addWine error: ' + errorThrown);
+            }
+        });
+
+
+    }
+
+
+    var id = '{{Language.id}}';
+    var langName = '{{Language.Name}}';
+    console.log(id);
+
+    $(document).ready(function() {
+
+
+
+
+
+
+
+    $("#langType").html("PROJECTS FOR: " +langName);
+        PopulateProjects(id);
+
+
+    });
+</script>
+{% endblock %}
+
