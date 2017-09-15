@@ -519,13 +519,13 @@ $project->save();
 
 
 
-$project = new Project();
-$project->setName("My Portfolio");
-$project->setLangId($language->getId());
-$project->setDes("");
-$project->setNotes("No Code file's as it is not open source. ");
-$project->setImgUrl("");
-$project->save();
+//$project = new Project();
+//$project->setName("My Portfolio");
+//$project->setLangId($language->getId());
+//$project->setDes("");
+//$project->setNotes("No Code file's as it is not open source. ");
+//$project->setImgUrl("");
+//$project->save();
 
 
 $language = new Language();
