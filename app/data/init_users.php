@@ -185,7 +185,7 @@ $event->save();
 $language = new Language();
 $language->setName(".NET");
 $language->setLogoImgUrl("/imgs/langlogo/net.png");
-$language->setDes("Full stach Development (C#, .net 3.5-4.5, SQL Sever)");
+$language->setDes("Full Stack Development");
 $language->setColor("#CE93D8");
 $language->save();
 
@@ -624,6 +624,7 @@ $project->setLangId($language->getId());
 $project->setGitlink("https://github.com/pparab2017/VehicleCollisions");
 $project->setDes("
 Data Source:  <a href='https://www.kaggle.com/nypd/vehicle-collisions ' target='_blank'>https://www.kaggle.com/nypd/vehicle-collisions </a>
+Data Source:  <a href='https://www.kaggle.com/nypd/vehicle-collisions ' target='_blank'>https://www.kaggle.com/nypd/vehicle-collisions </a>
 <br>
 <ul>
 
@@ -643,7 +644,7 @@ $project->save();
 
 $language = new Language();
 $language->setName("UX/UI");
-$language->setDes("");
+$language->setDes("User research and usability");
 $language->setColor("#BCAAA4");
 $language->setLogoImgUrl("/imgs/langlogo/ux.png");
 $language->save();
