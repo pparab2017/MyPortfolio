@@ -63,6 +63,11 @@
 
         }
 
+
+        .point{
+
+            cursor: pointer;
+        }
         .MobileEvent
         {
 
@@ -271,7 +276,7 @@
             }
 
             .intodiv {
-                margin-top: 20%;
+                margin-top: 25%;
             }
 
             .caption {
@@ -377,6 +382,11 @@
                 height: 450px;
             }
 
+
+
+            .about-class{
+                color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;
+            }
         /* Turn off parallax scrolling for tablets and phones */
         @media only screen and (max-device-width: 1024px) {
             .bgimg-1, .bgimg-2, .bgimg-3 {
@@ -400,6 +410,8 @@
                     -ms-transition: -ms-transform ease 0.6s;
                     transition: transform ease 0.6s;
                 }
+
+
 
                 .tileText {
                     color: white;
@@ -430,11 +442,35 @@
                 }
             }
 
+        @media screen and (max-width: 800px) and (min-width: 320px) {
+            .intodiv
+            {
+                margin-top: 0%;
+            }
+        }
+
         /* Turn off parallax scrolling for tablets and phones */
-        @media screen and (max-width: 780px) and (min-width: 320px) {
+        @media screen and (max-width: 766px) and (min-width: 320px) {
             .headerBar{
                 background-color: transparent !important;
             }
+
+
+            .about-class{
+                color: #777;background-color:white;text-align:center;padding:15px 40px;text-align: justify;
+            }
+
+            .tilebasic
+            {
+                padding: 0px !important;
+            }
+
+            .anti-container
+            {
+                padding: 0px !important;
+                padding-bottom: 30px !important;
+            }
+
 
             .menuItem{
                 padding-top: 30px;
@@ -528,41 +564,17 @@
         </div>
         <div class="collapse navbar-collapse backfull" id="myNavbar">
             <div class="nav navbar-nav container" style="padding-top: 30px;letter-spacing: 7px;">
-            <div class="col-sm-3 text-center menuItem">  <a id="introLink"> <h4><b>INTRO</b></h4></a></div>
-            <div class="col-sm-3 text-center menuItem">  <a id="aboutLink"><h4>ABOUT</h4></a></div>
-            <div class="col-sm-3 text-center menuItem">  <a id="workLink"> <h4>WORK</h4></a></div>
-            <div class="col-sm-3 text-center menuItem">  <a href="#"> <h4>RESUME</h4></a></div>
+            <div class="col-sm-3 text-center menuItem">  <a id="introLink" class="point"> <h4>INTRO</h4></a></div>
+            <div class="col-sm-3 text-center menuItem">  <a id="aboutLink" class="point"><h4>ABOUT</h4></a></div>
+            <div class="col-sm-3 text-center menuItem">  <a id="workLink" class="point"> <h4>WORK</h4></a></div>
+            <div class="col-sm-3 text-center menuItem">  <a href="#" class="point"> <h4>RESUME</h4></a></div>
             </div>
 
         </div>
     </div>
 </nav>
 
-<!--<nav class="navbar navbar-fixed-top"  id="navbar" style="height: 100px; background-color: black">-->
-    <!--<div class="container">-->
-        <!--<div class="navbar-header">-->
-            <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">-->
-                <!--<span class="icon-bar"></span>-->
-                <!--<span class="icon-bar"></span>-->
-                <!--<span class="icon-bar"></span>-->
-            <!--</button>-->
 
-        <!--</div>-->
-
-
-
-        <!--<div class="" id="myNavbar">-->
-            <!--<br>-->
-            <!--<div style="padding:10px; letter-spacing: 7px;">-->
-                <!--<div class="col-sm-3 text-center"> <a href="#"> <h4><b>INTRO</b></h4></a></div>-->
-                <!--<div class="col-sm-3 text-center"> <a  id="click2"><h4>ABOUT</h4></a> </div>-->
-                <!--<div class="col-sm-3 text-center"> <a  id="click" > <h4>WORK</h4></a> </div>-->
-                <!--<div class="col-sm-3 text-center"> <a href="#"> <h4>RESUME</h4></a> </div>-->
-            <!--</div>-->
-
-        <!--</div>-->
-    <!--</div>-->
-<!--</nav>-->
 
 
     {%block header %}{% endblock %}

@@ -69,7 +69,7 @@ function DisplayProjects(data)
         var titleDiv = Div.make("projectTitle");
         var titleDes = Div.make("projectTitle");
         var notes = Div.make("");
-        var gitImg = Img.make("","/imgs/git.png","30px");
+        var gitImg = Img.make("","/imgs/code.png","30px");
         var overView = Div.make("projectDes");
        // overView.setAttribute("id","projName_"+data[i].Name );
 
@@ -86,7 +86,7 @@ function DisplayProjects(data)
         $("#projs").append(ul2);
 
         if(data[i].Gitlink != null  )
-            titleDiv.innerHTML = "<b>" + data[i].Name +"</b><a target='_blank' href='" + data[i].Gitlink +"'>  <img src='/imgs/git.png' style='margin-top: -5px' height='20px;' ></a>";
+            titleDiv.innerHTML = "<b>" + data[i].Name +"</b><a target='_blank' href='" + data[i].Gitlink +"'>  <img src='/imgs/code.png' style='margin-top: -5px' height='20px;' ></a>";
         else
             titleDiv.innerHTML = "<b>" + data[i].Name +"</b>";
 
@@ -104,10 +104,13 @@ function DisplayProjects(data)
             var vdoDiv = Div.make("text-center videoWrapper");
             vdoDiv.innerHTML = ("<iframe id='ytplayer' type='text/html'  src='https://www.youtube.com/embed/" +data[i].Videolink +"?autoplay=0&origin=http://example.com'  frameborder='0'></iframe>");
             MainDiv.append(vdoDiv);
+
         }
 
         var img = ImgH.make("img-responsive", data[i].ImgUrl, "1140px");
+        img.setAttribute("style" ,"margin-top:10px");
         if(!(data[i].ImgUrl == null || data[i].ImgUrl == ""))
+
             MainDiv.append(img);
         $("#projectContainer").append(MainDiv);
 
@@ -117,7 +120,7 @@ function DisplayProjects(data)
 
 function setLanguages(languages) {
     var MainDiv = Div.make("smallPCon");
-    var MainDiv2 = Div.make("smallPCon2");
+    var MainDiv2 = Div.make("smallPCon2 text-center");
     MainDiv.innerHTML = ("<h4>OTHER PROJECTS</h4>");
     MainDiv2.innerHTML = ("<h4>OTHER PROJECTS</h4>");
     for(var i =0;i<languages.length;i++) {

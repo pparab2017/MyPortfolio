@@ -36,9 +36,15 @@ $timeLine->save();
 
 $event = new Event();
 $event->setTimelineid($timeLine->getId());
-$event->setTitle("Bachelor of Engineering in Information Technology ");
+$event->setTitle("Bachelor of Engineering in Information Technology - India");
 $event->setCompany("Padre Conceição College Of Engineering");
-$event->setDsc("<a target='_blank' href='http://pccegoa.org/'>Padre Conceição College Of Engineering</a> - <a target='_blank' href='https://www.unigoa.ac.in/'>Goa University</a>");
+$event->setDsc("Final year project
+<ul><li>
+Implementing Mobile Peer to Peer Data Transfer (Final Year Project (B.E)): Hybrid Peer to Peer Mobile app, where users can log in, chat and play games. 
+</li><li>
+Implemented using J2ME and JXME and a dedicated peer maintaining server.</li>
+
+");
 $event->setTypeid($schoolType->getId());
 $event->save();
 
@@ -51,9 +57,21 @@ $timeLine->save();
 
 $event = new Event();
 $event->setTimelineid($timeLine->getId());
-$event->setTitle("Analyst, Web Developer (.Net full stack)");
-$event->setCompany("COMMSCOPE Inc");
-$event->setDsc("COMMSCOPE Inc. - Verna, Goa");
+$event->setTitle("Analyst, Web Developer (.Net full stack) - India, Chicago");
+$event->setCompany("COMMSCOPE Inc, Verna - Goa, India");
+$event->setDsc("Worked on:
+ <ul>
+ <li>RFDS product configuration: A complex web system which interacts with SAP MDM. Used Infor product configuration to build business logic. Based on user inputs a complex SVG diagram and a bill of material is generated.
+ </li><li>Redesign for commscope.com(River): Was part of the core team and worked on redesigning the COMMSCOPE website.
+ </li><li>Web application deployed: Led a team of three for this project in 2014-2015. This system is used to deploy web, DB and console jobs and follows an approval cycle.
+ </li><li>Paint inspection Records: Web based testing System for Painted parts. Generates
+weekly report.
+ </li><li>Patent Inventions: Role based web System developed to maintain company’s
+patents at one place.
+ </li><li>Web based attendance system: Led a team of seven for this project in 2011-
+2012. System supports more the 3000 employees and gives them access to check their attendance, leaves and generates payroll report.
+</li></ul>
+");
 $event->setTypeid($workType->getId());
 $event->save();
 
@@ -66,7 +84,7 @@ $timeLine->save();
 $event = new Event();
 $event->setTimelineid($timeLine->getId());
 $event->setTitle("MS in Information Technology (HCI) - Fall 2016");
-$event->setCompany("University of North Carolina as Charlotte");
+$event->setCompany("University of North Carolina at Charlotte");
 $event->setDsc("12 Credits <br> Subjects for this semester:
 <ul><li>Mobile application Development</li>
 <li>Applied data bases</li>
@@ -83,7 +101,7 @@ $timeLine->save();
 $event = new Event();
 $event->setTimelineid($timeLine->getId());
 $event->setTitle("MS in Information Technology (HCI) - Spring 2016");
-$event->setCompany("University of North Carolina as Charlotte");
+$event->setCompany("University of North Carolina at Charlotte");
 $event->setDsc("12 Credits <br> Subjects for this semester:
 <ul><li>Algorithms and data structures</li>
 <li>Information visualization</li>
@@ -95,8 +113,12 @@ $event->save();
 $event = new Event();
 $event->setTimelineid($timeLine->getId());
 $event->setTitle("Research Assistant (Dr. Mohamad Shehab)");
-$event->setCompany("University of North Carolina as Charlotte");
-$event->setDsc("University of North Carolina as Charlotte");
+$event->setCompany("University of North Carolina at Charlotte");
+$event->setDsc("Worked under Dr. Mohamad Shehab. <br>
+<b>Worked on the below projects:</b>
+<ul><li>Web Crawler: Used phantom.js to scrap data from charlotte back page for data analysis.</li></ul>
+
+");
 $event->setTypeid($workType->getId());
 $event->save();
 
@@ -108,11 +130,11 @@ $timeLine->save();
 $event = new Event();
 $event->setTimelineid($timeLine->getId());
 $event->setTitle("Research Assistant (php full stack)");
-$event->setCompany("University of North Carolina as Charlotte");
-$event->setDsc("Working under Dr. Mohamad Shehab. <br>
-<b>Currently working on the below projects:</b>
-<ul><li>Women's Health (Status - Development phase)</li>
-<li>HSCALE (Status - Development phase)</li>
+$event->setCompany("University of North Carolina at Charlotte");
+$event->setDsc("Worked under Dr. Mohamad Shehab. <br>
+<b>Worked on the below projects:</b>
+<ul><li>Women's Health (Status - Development)</li>
+<li>HSCALE (Status - Development)</li>
 </ul>");
 $event->setTypeid($workType->getId());
 $event->save();
@@ -120,9 +142,9 @@ $event->save();
 $event = new Event();
 $event->setTimelineid($timeLine->getId());
 $event->setTitle("Research Assistant (Data Visualization)");
-$event->setCompany("University of North Carolina as Charlotte");
-$event->setDsc("Working under Dr. Aidong Lu. <br>
-<b>Currently working finalising the design for the below project</b>
+$event->setCompany("University of North Carolina at Charlotte");
+$event->setDsc("Worked under Dr. Aidong Lu. <br>
+<b>Currently working on finalising the design for the below project</b>
 <ul><li>Visualization of vandal and benign users based on VIEWS</li>
 
 </ul>");
@@ -138,11 +160,11 @@ $timeLine->save();
 $event = new Event();
 $event->setTimelineid($timeLine->getId());
 $event->setTitle("MS in Information Technology (HCI) - Fall 2017");
-$event->setCompany("University of North Carolina as Charlotte");
+$event->setCompany("University of North Carolina at Charlotte");
 $event->setDsc("Took nine credits <br> Subjects for this semester:
 <ul><li>Advanced Mobile application Development (Android, IOS and Hybrid): Will be working on complete mobile apps where we will be creating 
-Apis and consuming them from the mobile app. Will work with beacons, fitbit and finally will develop IOS and 
-hybrid apps.</li>
+API's and consuming them from the mobile app. Will work with beacons, fitbit, IOS development 
+and hybrid apps.</li>
 <li>Rapid prototyping: Will work to create prototype and prototyping tools.</li></ul>");
 $event->setTypeid($schoolType->getId());
 $event->save();
@@ -150,7 +172,7 @@ $event->save();
 $event = new Event();
 $event->setTimelineid($timeLine->getId());
 $event->setTitle("Research Assistant (php full stack)");
-$event->setCompany("University of North Carolina as Charlotte");
+$event->setCompany("University of North Carolina at Charlotte");
 $event->setDsc("Working under Dr. Mohamad Shehab. <br>
 <b>Currently working on the below projects:</b>
 <ul><li>Women's Health (Status - Testing phase)</li>
@@ -171,7 +193,34 @@ $language->save();
 $project = new Project();
 $project->setName("Interpreter Locator");
 $project->setLangId($language->getId());
-$project->setDes("At medical facilities a common way of communication is through pagers. Doctors and other medical staff will page each other when needed for a certain room number and at times they will call if no one arrives in a certain amount of time or an emergency. Hospitals are now incorporating higher level technology such as the IPad in order to fill out documents for the patients and to look at the hospital database of who is in, what they are in for, and the nurse who is in charge of that patient. What will happen is employees such as the interpreters will be in a room or in the office and will get a page, unable to answer the phone call that they’ll receive in 10 min all they can do is hang up because they are usually working with a patient at the moment
+$project->setDes("
+<b>Problem:</b> <br>
+At medical facilities a common way of communication is through pagers. Doctors and
+ other medical staff will page each other when needed for a certain room number
+  and at times they will call if no one arrives in a certain amount 
+  of time or an emergency. Hospitals are now incorporating higher level
+   technology such as the IPad in order to fill out documents for
+    the patients and to look at the hospital database of who is in, 
+    what they are in for, and the nurse who is in charge of that patient. 
+    What will happen is employees such as the interpreters will be in a room 
+    or in the office and will get a page, unable to answer the phone call that
+     they’ll receive in 10 min all they can do is hang up because they are usually working with a patient at the moment.
+     <br>
+     <b>Solution:</b> <br>
+     Developed a web app, in which the doctors can login to the system, select available interpreters and make a 
+     request. The interpreter will then pick the request and send an ETA to the doctor.
+     
+     <br>
+     Technologies used:
+     <ul>
+     
+     <li>
+     ASP.NET
+    
+</li><li>SQL SERVER</li>
+<li>Javascript and Jquery.</li>
+<li> SVG images generated using inkscape and then manipulated using Javascript. </li>
+</ul>
 ");
 $project->setNotes("Notes: Below screen shots are prototypes. Feel free to go through the code <a target='_blank' href='https://github.com/pparab2017/InterpreterLocator'>here<a/>.");
 $project->setGitlink("https://github.com/pparab2017/InterpreterLocator");
@@ -189,6 +238,7 @@ It had two major parts. Refer the figure below.
 <ul><li>Console job: Pulls data from database, cleans and refreshes the database.</li>
 <li>Web system: Role based web system, employees can use this system to check their attendance, apply leaves and manage any attendance discrepancies. Managers can login 
   and approve based on their roles. System admins can define custom roles, give custom rights to each roll.</li></ul>
+
 
 Every month end this data is used to generate the payroll.
 <br>
@@ -487,11 +537,14 @@ $language->save();
 
 
 $project = new Project();
-$project->setName("My Portfolio");
+$project->setName("My visualisation library");
 $project->setLangId($language->getId());
-$project->setDes("");
-$project->setNotes("No Code file's as it is not open source. ");
-$project->setImgUrl("");
+$project->setDes("Started writing this js files in my free time, wanted to learn SVG and VML DOM
+. All the files are written from scratch and its good source for some one to learn how to include SVG dom in 
+HTML.");
+$project->setNotes("Below i have some screen shots.");
+$project->setImgUrl("/imgs/projects/js/all.png");
+$project->setGitlink("https://github.com/pparab2017/javascript");
 $project->save();
 
 
@@ -503,29 +556,90 @@ $language->setColor("#E57373");
 $language->save();
 
 $project = new Project();
-$project->setName("Hospital Data (Using SPARK SQL and python");
+$project->setName("Hospital Data (Using SPARK SQL and python)");
 $project->setLangId($language->getId());
-$project->setDes("");
-$project->setNotes("No Code file's as it is not open source. ");
-$project->setImgUrl("");
+$project->setDes("
+
+ Worked with Apache Spark, and visualization techniques to compare hospital dataset provided by <a target='_blank' href='https://data.medicare.gov/data/hospital-compare'>https://data.medicare.gov/data/hospital-compare</a> 
+
+These data allow us to compare the quality of care at over 4,000 Medicare-certified hospitals across the country. This data also can be used by the hospital is visualized properly to improve their quality of care.
+Using the above mentioned dataset we compared hospitals based on the below mentioned use cases: 
+<ul><li>
+Complications: Patients admitted to the hospital for treatment of one medical problem sometimes get other serious injuries or complications, and may even die. Hospitals can often prevent these events by following best practices for treating patients.
+</li><li>
+Readmission and death: These quality measures show how often patients who are hospitalized for certain conditions experience serious problems soon after they are discharged. Some patients may need to be admitted to the hospital again, and some patients may even die. Also we plan to see and compare the Readmission reduction. 
+</li><li>
+	Survey of patients' experiences: Hospital CAHPS®, is a standardized survey instrument and data collection methodology that has been in use since 2006 to measure patients' perspectives of hospital care. We will get this data and will try to compare with the overall star ratings for the hospital. 
+</li><li>
+	Payment & value of care: With value of care combines measures of payment and quality-of-care for heart attack patients, heart failure patients and pneumonia patients.
+</li>
+</ul>
+<br>
+<b>Technologies Used:
+</b>
+<ul>
+<li>
+Apache Spark with Jupyter notebooks.
+</li><li>Coding: Used python for coding and data manipulation.
+</li><li>Visualization: We have used 2 libraries:
+</li><li>Matplotlib: is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms.
+</li><li>Plotly: Modern platform for agile business intelligence and data science. 
+</li></ul>
+");
+$project->setNotes("Below i have a screen shot of the poster which we presented at the end of the semester.<br>");
+$project->setImgUrl("/imgs/projects/viz/spark.png");
+$project->setGitlink("https://github.com/pparab2017/JupyterNotebook_codeFiles");
 $project->save();
 
 
 $project = new Project();
 $project->setName("Vandal and benign users Visualization - In class");
 $project->setLangId($language->getId());
-$project->setDes("");
-$project->setNotes("No Code file's as it is not open source. ");
-$project->setImgUrl("");
+$project->setDes("Used visualization techniques to find the Benign and vandal wikipedia.
+Data set: used the VEWS data set, which provides data from 2005 – 2014.
+<ul><li>
+Back end: Used PHP to query the required data from the SQL data.
+</li><li>Front end: Used d3, jQuery, HTML and CSS.</li></ul>");
+$project->setImgUrl("/imgs/projects/viz/wiki.png");
+$project->setNotes("Below i have a screen shot and a video which we made at the end of the semester. ");
+
+$project->setGitlink("https://github.com/pparab2017/Wiki");
+$project->setVideolink("bsS6j8DSoIg");
 $project->save();
 
 $project = new Project();
-$project->setName("Vandal and benign users Visualization");
+$project->setName("Attack Trees");
 $project->setLangId($language->getId());
-$project->setDes("");
-$project->setNotes("No Code file's as it is not open source. ");
-$project->setImgUrl("");
+$project->setDes("Visualization tool to visualise XML files generated from <a href='http://satoss.uni.lu/members/piotr/adtool/' target='_blank'>ADTool</a>
+Users can browse and select xml file from, this will visualize the xml file.
+Users can right click and add probability for each node. This project is still under development.");
+$project->setNotes("Below i have a screen shot. No code file as it is not open source. ");
+$project->setImgUrl("/imgs/projects/viz/attacktree.png");
 $project->save();
+
+
+$project = new Project();
+$project->setName("Vehicle Collisions in NYC, 2015-Present");
+$project->setLangId($language->getId());
+$project->setGitlink("https://github.com/pparab2017/VehicleCollisions");
+$project->setDes("
+Data Source:  <a href='https://www.kaggle.com/nypd/vehicle-collisions ' target='_blank'>https://www.kaggle.com/nypd/vehicle-collisions </a>
+<br>
+<ul>
+
+<li>
+Used data from csv and this data is used to project points on the
+map.</li><li>
+Map coordinates: Used nyc.json file to plot the map.</li>
+<li>
+D3 version: Used the version 3 (v3) and can be found under the folder d3.</li>
+</ul>
+");
+$project->setNotes("Below i have a screen shot. ");
+$project->setImgUrl("/imgs/projects/viz/nyc.png");
+$project->save();
+
+//https://www.kaggle.com/nypd/vehicle-collisions
 
 $language = new Language();
 $language->setName("UX/UI");
@@ -570,6 +684,10 @@ $project->setNotes("Worked with Sriram PK on this project.Most of the work is do
 in initial mock-ups and brain storming. Please have a look at the complete documentation on <a target='_blank' href='http://srirampk.com/portfolio-single-1.html'>Sriram's Portfolio</a>");
 $project->setImgUrl("/imgs/projects/ux/nr.png");
 $project->save();
+
+
+
+
 
 
 
